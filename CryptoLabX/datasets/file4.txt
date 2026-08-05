@@ -1,0 +1,1 @@
+Letter frequency analysis compares the occurrence of letters in ciphertext against the known average frequencies of a language. In English, the letters E, T, A, O, and I appear most frequently.

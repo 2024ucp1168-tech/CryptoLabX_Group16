@@ -1,0 +1,1 @@
+A cryptographic hash function maps data of arbitrary size to a fixed-size bit array. Common secure hashing algorithms include SHA-256 and SHA-3, whereas MD5 and SHA-1 are considered deprecated.

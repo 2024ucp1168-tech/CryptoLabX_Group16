@@ -1,0 +1,1 @@
+Symmetric encryption uses the same secret key for both encrypting plaintext and decrypting ciphertext. Popular symmetric algorithms include AES, DES, and Triple DES.

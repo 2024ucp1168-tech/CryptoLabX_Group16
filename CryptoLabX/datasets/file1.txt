@@ -1,0 +1,1 @@
+The quick brown fox jumps over the lazy dog. Cryptography relies heavily on character frequency and pattern analysis to uncover hidden messages in simple substitution ciphers.

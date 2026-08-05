@@ -1,0 +1,1 @@
+Asymmetric cryptography uses a public key for encryption and a private key for decryption. RSA, Elliptic Curve Cryptography, and Diffie-Hellman are standard public-key algorithms.
