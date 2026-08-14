@@ -1,5 +1,5 @@
 from auth import create_wallet, login
-from transactions import check_balance, send_transaction, show_transactions
+from transaction import check_balance, send_transaction, show_transactions
 
 
 def wallet_menu(wallet_id):
