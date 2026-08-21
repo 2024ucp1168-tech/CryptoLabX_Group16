@@ -1,56 +1,71 @@
-import string
+from shift_cipher import decrypt
 
-# Standard English letter frequencies (percentages normalized to decimals)
-ENGLISH_FREQ = {
-    'a': 0.08167, 'b': 0.01492, 'c': 0.02782, 'd': 0.04253, 'e': 0.12702,
-    'f': 0.02228, 'g': 0.02015, 'h': 0.06094, 'i': 0.06966, 'j': 0.00153,
-    'k': 0.00772, 'l': 0.04025, 'm': 0.02406, 'n': 0.06749, 'o': 0.07507,
-    'p': 0.01929, 'q': 0.00095, 'r': 0.05987, 's': 0.06327, 't': 0.09056,
-    'u': 0.02758, 'v': 0.00978, 'w': 0.02360, 'x': 0.00150, 'y': 0.01974,
-    'z': 0.00074
+english_frequency = {
+    'a': 8.167,
+    'b': 1.492,
+    'c': 2.782,
+    'd': 4.253,
+    'e': 12.702,
+    'f': 2.228,
+    'g': 2.015,
+    'h': 6.094,
+    'i': 6.966,
+    'j': 0.153,
+    'k': 0.772,
+    'l': 4.025,
+    'm': 2.406,
+    'n': 6.749,
+    'o': 7.507,
+    'p': 1.929,
+    'q': 0.095,
+    'r': 5.987,
+    's': 6.327,
+    't': 9.056,
+    'u': 2.758,
+    'v': 0.978,
+    'w': 2.360,
+    'x': 0.150,
+    'y': 1.974,
+    'z': 0.074
 }
 
-def decrypt_shift(ciphertext: str, shift: int) -> str:
-    """Decrypts ciphertext using a given shift value."""
-    plaintext = []
-    for char in ciphertext:
-        if char.isalpha():
-            base = ord('a') if char.islower() else ord('A')
-            decrypted_char = chr((ord(char) - base - shift) % 26 + base)
-            plaintext.append(decrypted_char)
-        else:
-            plaintext.append(char)
-    return "".join(plaintext)
 
-def calculate_chi_squared(text: str) -> float:
-    """Calculates the Chi-Squared statistic for a given text sample."""
-    clean_text = [c.lower() for c in text if c.isalpha()]
-    total_letters = len(clean_text)
-    
-    if total_letters == 0:
+def chi_square(text):
+    letters = []
+
+    for ch in text.lower():
+        if ch.isalpha():
+            letters.append(ch)
+
+    total = len(letters)
+
+    if total == 0:
         return float('inf')
 
-    chi_squared = 0.0
-    for char in string.ascii_lowercase:
-        observed_count = clean_text.count(char)
-        expected_count = ENGLISH_FREQ[char] * total_letters
-        chi_squared += ((observed_count - expected_count) ** 2) / expected_count
-        
-    return chi_squared
+    score = 0
 
-def chi_square_decryption(ciphertext: str):
-    """Breaks a shift cipher by finding the shift with the lowest Chi-Square score."""
-    scores = []
+    for letter in english_frequency:
+        observed = letters.count(letter)
+        expected = (english_frequency[letter] / 100) * total
 
-    for shift in range(26):
-        decrypted = decrypt_shift(ciphertext, shift)
-        score = calculate_chi_squared(decrypted)
-        scores.append((score, shift, decrypted))
+        if expected > 0:
+            score += ((observed - expected) ** 2) / expected
 
-    # Sort candidates by Chi-Square score (ascending)
-    scores.sort(key=lambda x: x[0])
-    
-    best_score, best_shift, best_plaintext = scores[0]
-    
-    print("Best Score : {best_score} \n Best Shift : {best_shift} \n Best PlainText : {best_plaintext} \n")
+    return score
 
+
+def chi_square_attack(ciphertext):
+    best_key = 0
+    best_text = ciphertext
+    best_score = float('inf')
+
+    for key in range(26):
+        plaintext = decrypt(ciphertext, key)
+        score = chi_square(plaintext)
+
+        if score < best_score:
+            best_score = score
+            best_key = key
+            best_text = plaintext
+
+    return best_key, best_text, best_score
