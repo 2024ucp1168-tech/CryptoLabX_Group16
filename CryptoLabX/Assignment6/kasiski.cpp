@@ -158,3 +158,103 @@ vector<int> find_factors(vector<int> distances)
 
     return factors;
 }
+
+/* =========================================================
+   5. kasiski_analysis()
+
+   Counts how frequently each possible key length occurs
+   as a factor of the repeated-pattern distances.
+
+   Returns candidate key lengths in descending order.
+   ========================================================= */
+
+vector<int> kasiski_analysis(
+    vector<int> distances)
+{
+    map<int, int> count;
+
+    for (int distance : distances)
+    {
+        for (int keyLength = 2;
+             keyLength <= 20;
+             keyLength++)
+        {
+            if (distance % keyLength == 0)
+            {
+                count[keyLength]++;
+            }
+        }
+    }
+
+    vector<pair<int, int>> values;
+
+    for (auto x : count)
+    {
+        values.push_back({x.first, x.second});
+    }
+
+    sort(values.begin(), values.end(),
+         [](pair<int, int> a, pair<int, int> b)
+         {
+             return a.second > b.second;
+         });
+
+    vector<int> candidates;
+
+    cout << "\n========== KASISKI ANALYSIS ==========\n";
+
+    cout << "Possible key lengths:\n";
+
+    for (auto x : values)
+    {
+        cout << "Length " << x.first
+             << " -> " << x.second
+             << " factor occurrences\n";
+
+        candidates.push_back(x.first);
+    }
+
+    return candidates;
+}
+
+
+/* =========================================================
+   6. calculate_ic()
+
+   Index of Coincidence:
+
+             sum f[i](f[i]-1)
+   IC = ----------------------------
+             N(N-1)
+
+   English text usually has IC around 0.066.
+
+   Random text has IC around 0.038.
+   ========================================================= */
+
+double calculate_ic(string text)
+{
+    int n = text.length();
+
+    if (n <= 1)
+        return 0.0;
+
+    int frequency[26] = {0};
+
+    for (char c : text)
+    {
+        frequency[c - 'A']++;
+    }
+
+    double numerator = 0;
+
+    for (int i = 0; i < 26; i++)
+    {
+        numerator +=
+            frequency[i] * (frequency[i] - 1);
+    }
+
+    double denominator = n * (n - 1);
+
+    return numerator / denominator;
+}
