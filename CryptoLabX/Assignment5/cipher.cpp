@@ -437,3 +437,47 @@ void pattern_analysis(string ciphertext)
         cout << words[i] << " -> " << pattern << "\n";
     }
 }
+void display_partial_plaintext(string ciphertext,
+                               string substitution)
+{
+    string partial = apply_substitution(ciphertext,
+                                         substitution);
+
+    cout << "\n========== PARTIAL PLAINTEXT ==========\n";
+
+    cout << partial << "\n";
+}
+string apply_substitution(string ciphertext, string substitution)
+{
+    string result = "";
+
+    for (int i = 0; i < (int)ciphertext.length(); i++)
+    {
+        char ch = ciphertext[i];
+
+        if (ch >= 'A' && ch <= 'Z')
+        {
+            int index = ch - 'A';
+
+            if (substitution[index] != '?')
+                result += substitution[index];
+            else
+                result += '_';
+        }
+        else if (ch >= 'a' && ch <= 'z')
+        {
+            int index = ch - 'a';
+
+            if (substitution[index] != '?')
+                result += substitution[index];
+            else
+                result += '_';
+        }
+        else
+        {
+            result += ch;
+        }
+    }
+
+    return result;
+}
