@@ -227,13 +227,9 @@ int main()
 
         else if (choice == 6)
         {
-            string recoveredPlaintext;
             string recoveredKey;
 
-            cin.ignore();
-
-            cout << "\nEnter recovered plaintext:\n";
-            getline(cin, recoveredPlaintext);
+            cout << "\nUsing plaintext from plaintext.txt for verification.\n";
 
             cout << "\nEnter recovered key:\n";
             cin >> recoveredKey;
@@ -245,7 +241,7 @@ int main()
             else
             {
                 verify_solution(
-                    recoveredPlaintext,
+                    plaintext,
                     ciphertext,
                     recoveredKey
                 );
