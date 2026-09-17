@@ -481,3 +481,24 @@ string apply_substitution(string ciphertext, string substitution)
 
     return result;
 }
+
+bool verify_solution(string plaintext,
+                     string ciphertext,
+                     string key)
+{
+    string regeneratedCiphertext =
+        encrypt(plaintext, key);
+
+    if (regeneratedCiphertext == ciphertext)
+    {
+        cout << "\nVerification successful!\n";
+        cout << "Re-encrypted ciphertext matches.\n";
+
+        return true;
+    }
+
+    cout << "\nVerification failed!\n";
+    cout << "Re-encrypted ciphertext does not match.\n";
+
+    return false;
+}
