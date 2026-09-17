@@ -280,3 +280,160 @@ void word_frequency_analysis(string ciphertext)
         cout << words[i] << "\t" << frequencies[i] << "\n";
     }
 }
+
+void pattern_analysis(string ciphertext)
+{
+    string words[1000];
+    int wordCount = 0;
+
+    string currentWord = "";
+
+    for (int i = 0; i <= (int)ciphertext.length(); i++)
+    {
+        char ch;
+
+        if (i == (int)ciphertext.length())
+            ch = ' ';
+        else
+            ch = ciphertext[i];
+
+        if ((ch >= 'A' && ch <= 'Z') ||
+            (ch >= 'a' && ch <= 'z'))
+        {
+            if (ch >= 'A' && ch <= 'Z')
+                ch = ch + ('a' - 'A');
+
+            currentWord += ch;
+        }
+        else
+        {
+            if (currentWord.length() > 0)
+            {
+                words[wordCount] = currentWord;
+                wordCount++;
+
+                currentWord = "";
+            }
+        }
+    }
+
+    cout << "\n========== WORD PATTERN ANALYSIS ==========\n";
+
+    // -----------------------------------------------------
+    // One-letter words
+    // -----------------------------------------------------
+
+    cout << "\nOne-letter words:\n";
+
+    for (int i = 0; i < wordCount; i++)
+    {
+        if (words[i].length() == 1)
+        {
+            cout << words[i] << " ";
+        }
+    }
+
+    // -----------------------------------------------------
+    // Two-letter words
+    // -----------------------------------------------------
+
+    cout << "\n\nTwo-letter words:\n";
+
+    for (int i = 0; i < wordCount; i++)
+    {
+        if (words[i].length() == 2)
+        {
+            cout << words[i] << " ";
+        }
+    }
+
+    // -----------------------------------------------------
+    // Three-letter words
+    // -----------------------------------------------------
+
+    cout << "\n\nThree-letter words:\n";
+
+    for (int i = 0; i < wordCount; i++)
+    {
+        if (words[i].length() == 3)
+        {
+            cout << words[i] << " ";
+        }
+    }
+
+    // -----------------------------------------------------
+    // Repeated words
+    // -----------------------------------------------------
+
+    cout << "\n\nRepeated words:\n";
+
+    for (int i = 0; i < wordCount; i++)
+    {
+        bool alreadyDisplayed = false;
+
+        for (int k = 0; k < i; k++)
+        {
+            if (words[k] == words[i])
+            {
+                alreadyDisplayed = true;
+                break;
+            }
+        }
+
+        if (alreadyDisplayed)
+            continue;
+
+        int count = 0;
+
+        for (int j = 0; j < wordCount; j++)
+        {
+            if (words[i] == words[j])
+            {
+                count++;
+            }
+        }
+
+        if (count > 1)
+        {
+            cout << words[i]
+                 << " -> "
+                 << count
+                 << " times\n";
+        }
+    }
+
+    // -----------------------------------------------------
+    // Repeated letter patterns
+    // -----------------------------------------------------
+
+    cout << "\nRepeated letter patterns:\n";
+
+    for (int i = 0; i < wordCount; i++)
+    {
+        string pattern = "";
+
+        int nextNumber = 0;
+        int mapping[26];
+
+        for (int j = 0; j < 26; j++)
+        {
+            mapping[j] = -1;
+        }
+
+        for (int j = 0; j < (int)words[i].length(); j++)
+        {
+            int index = words[i][j] - 'a';
+
+            if (mapping[index] == -1)
+            {
+                mapping[index] = nextNumber;
+                nextNumber++;
+            }
+
+            // Convert number to character for displaying pattern
+            pattern += char('0' + mapping[index]);
+        }
+
+        cout << words[i] << " -> " << pattern << "\n";
+    }
+}
