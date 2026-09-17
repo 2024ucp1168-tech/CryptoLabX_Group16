@@ -1,0 +1,462 @@
+PS C:\Users\garvm\OneDrive\Desktop\CryptoLab\CryptoLabX_Group16\CryptoLabX\Assignment6> .\program.exe                                  
+=============================================
+ VIGENERE CIPHER CRYPTANALYSIS
+ KASISKI + FREQUENCY ANALYSIS
+=============================================
+
+Enter ciphertext:
+QRBAI UWYOK ILBRZ XTUWL EGXSN VDXWR XMHXY FCGMWWWSME LSXUZMKMFS BNZIF YEIEG RFZRX WKUFA XQEDX DTTHY NTBRJLHTAI KOCZXQHBND ZIGZG PXARJ EDYSJ NUMKI FLBTN HWISW NVLFMEGXAI AAWSLFMHXR SGRIG HEQTU MLGLV BRSIL AEZSG XCMHT OWHFMLWMRK HPRFBELWGF RUGPB HNBEM KBNVW HHUEA KILBN BMLHK XUGMLYQKHP RFBELEJYNV WSIJB GAXGO TPMXR TXFKI WUALB RGWIE GHWHGAMEWW LTAELNUMRE UWTBL SDPRL YVRET LEEDF ROBEQ UXTHX ZYOZBXLKAC KSOHNVWXKS MAEPH IYQMM FSECH RFYPB BSQTX TPIWH GPXQDFWTAI KNNBXSIYKE TXTLV BTMQA LAGHG OTPMX RTXTH XSFYG WMVKHLOIVU ALMLDLTSYV WYNVW MQVXP XRVYA BLXDL XSMLW SUIOI IMELISOYEB HPHNRWTVUI AKEYG WIETG WWBVM VDUMA EPAUA KXWHK MAUPAMUKHQ PWKCXEFXGW WSDDE OMLWL NKMWD FWTAM FAFEA MFZBN WIHYALXRWK MAMIKGNGHJ UAZHM HGUAL YSULA ELYHJ BZMSI LAILH WWYIKEWAHN PMLBNNBVPJ XLBEF WRWGX KWIRH XWWGQ HRRXW IOMFY CZHZLVXNVI OYZCMYDDEY IPWXT MMSHS VHHXZ YEWNV OAOEL SMLSW KXXFXSTRVI HZLEFJXDAS FIE
+
+========== PREPROCESSING ==========
+Clean ciphertext:
+QRBAIUWYOKILBRZXTUWLEGXSNVDXWRXMHXYFCGMWWWSMELSXUZMKMFSBNZIFYEIEGRFZRXWKUFAXQEDXDTTHYNTBRJLHTAIKOCZXQHBNDZIGZGPXARJEDYSJNUMKIFLBTNHWISWNVLFMEGXAIAAWSLFMHXRSGRIGHEQTUMLGLVBRSILAEZSGXCMHTOWHFMLWMRKHPRFBELWGFRUGPBHNBEMKBNVWHHUEAKILBNBMLHKXUGMLYQKHPRFBELEJYNVWSIJBGAXGOTPMXRTXFKIWUALBRGWIEGHWHGAMEWWLTAELNUMREUWTBLSDPRLYVRETLEEDFROBEQUXTHXZYOZBXLKACKSOHNVWXKSMAEPHIYQMMFSECHRFYPBBSQTXTPIWHGPXQDFWTAIKNNBXSIYKETXTLVBTMQALAGHGOTPMXRTXTHXSFYGWMVKHLOIVUALMLDLTSYVWYNVWMQVXPXRVYABLXDLXSMLWSUIOIIMELISOYEBHPHNRWTVUIAKEYGWIETGWWBVMVDUMAEPAUAKXWHKMAUPAMUKHQPWKCXEFXGWWSDDEOMLWLNKMWDFWTAMFAFEAMFZBNWIHYALXRWKMAMIKGNGHJUAZHMHGUALYSULAELYHJBZMSILAILHWWYIKEWAHNPMLBNNBVPJXLBEFWRWGXKWIRHXWWGQHRRXWIOMFYCZHZLVXNVIOYZCMYDDEYIPWXTMMSHSVHHXZYEWNVOAOELSMLSWKXXFXSTRVIHZLEFJXDASFIE
+
+========== REPEATED PATTERNS ==========
+KIL ILB LBR EGX MHX WWS MEL ELS MFS IEG RXW TAI AIK GPX NUM WNV LFM LVB SIL ILA LAE MLW KHP HPR PRF RFB FBE BEL NVW LBN YNV GOT OTP TPM PMX MXR XRT RTX UAL GWI WIE WHG AEL XTH THX HXZ XZY MAE AEP TXT DFW FWT WTA NNB YGW SML GWW KMA DDE AMF HZL 
+
+========== DISTANCES ==========
+216 216 267 120 120 514 443 684 312 221 609 300 300 276 180 588 12 240 456 456 444 288 84 48 48 48 48 48 48 36 96 108 420 204 156 156 156 156 156 156 156 168 168 228 228 96 322 96 96 384 384 168 168 27 21 180 180 180 253 75 254 39 60 144 6 58 
+
+========== FACTORS ==========
+2 3 4 6 8 9 12 18 2 3 4 6 8 9 12 18 3 2 3 4 5 6 8 10 12 15 20 2 3 4 5 6 8 10 12 15 20 2 2 3 4 6 9 12 18 19 2 3 4 6 8 12 13 13 17 3 7 2 3 4 5 6 10 12 15 20 2 3 4 5 6 10 12 15 20 2 3 4 6 12 2 3 4 5 6 9 10 12 15 18 20 2 3 4 6 7 12 14 2 3 4 6 12 2 3 4 5 6 8 10 12 15 16 20 2 3 4 6 8 12 19 2 3 4 6 8 12 19 2 3 4 6 12 2 3 4 6 8 9 12 16 18 2 3 4 6 7 12 14 2 3 4 6 8 12 16 2 3 4 6 8 12 16 2 3 4 6 8 12 16 2 3 4 6 8 12 16 2 3 4 6 8 12 16 2 3 4 6 8 12 16 2 3 4 6 9 12 18 2 3 4 6 8 12 16 2 3 4 6 9 12 18 2 3 4 5 6 7 10 12 14 15 20 2 3 4 6 12 17 2 3 4 6 12 13 2 3 4 6 12 13 2 3 4 6 12 13 2 3 4 6 12 13 2 3 4 6 12 13 2 3 4 6 12 13 2 3 4 6 12 13 2 3 4 6 7 8 12 14 2 3 4 6 7 8 12 14 2 3 4 6 12 19 2 3 4 6 12 19 2 3 4 6 8 12 16 2 7 14 2 3 4 6 8 12 16 2 3 4 6 8 12 16 2 3 4 6 8 12 16 2 3 4 6 8 12 16 2 3 4 6 7 8 12 14 2 3 4 6 7 8 12 14 3 9 3 7 2 3 4 5 6 9 10 12 15 18 20 2 3 4 5 6 9 10 12 15 18 20 2 3 4 5 6 9 10 12 15 18 20 11 3 5 15 2 3 13 2 3 4 5 6 10 12 15 20 2 3 4 6 8 9 12 16 18 2 3 6 2 
+
+========== KASISKI ANALYSIS ==========
+Possible key lengths:
+Length 3 -> 59 factor occurrences
+Length 2 -> 57 factor occurrences
+Length 6 -> 53 factor occurrences
+Length 4 -> 52 factor occurrences
+Length 12 -> 52 factor occurrences
+Length 8 -> 26 factor occurrences
+Length 16 -> 15 factor occurrences
+Length 5 -> 12 factor occurrences
+Length 9 -> 12 factor occurrences
+Length 15 -> 12 factor occurrences
+Length 20 -> 11 factor occurrences
+Length 18 -> 11 factor occurrences
+Length 10 -> 11 factor occurrences
+Length 13 -> 10 factor occurrences
+Length 7 -> 10 factor occurrences
+Length 14 -> 8 factor occurrences
+Length 19 -> 5 factor occurrences
+Length 17 -> 2 factor occurrences
+Length 11 -> 1 factor occurrences
+
+========== INDEX OF COINCIDENCE ==========
+Key length 3 -> Average IC = 0.0495
+Key length 2 -> Average IC = 0.0457
+Key length 6 -> Average IC = 0.0589
+Key length 4 -> Average IC = 0.0503
+Key length 12 -> Average IC = 0.0717
+
+=============================================
+Estimated Key Length = 12
+=============================================
+
+========== GROUPS ==========
+Group 1: QBNCUYUYOZNIIGLXMFBBYYOUHNPFYHIYHNLOFUYYSYIWUMXLAYGUJWBWWYYXYLII
+Group 2: RRVGZEFNCGUSARVCRRNNQNTAGURRONYPGNVTYANAUEABAUGNFANABYNRGCZTESHE
+Group 3: BZDMMIATZPMWAIBMKUVBKVPLAMLOZVQBPBBPGLVBIBKVKKWKELGLZINWQZCMWWZ
+Group 4: AXXWKEXBXXKNWGRHHGWMHWMBMRYBBWMBXXTMWMWLOHEMXHWMAXHYMKBGHHMMNKL
+Group 5: ITWWMGQRQAIVSHSTPPHLPSXREEVEXXMSQSMXMLMXIPYVWQSWMRJSSEVXRZYSVXE
+Group 6: UURWFREJHRFLLEIORBHHRIRGWURQLKFQDIQRVDQDIHGDHPDDFWUUIWPKRLDHOXF
+Group 7: WWXSSFDLBJLFFQLWFHUKFJTWWWEUKSSTFYATKLVLMNWUKWDFZKALLAJWXVDSAFJ
+Group 8: YLMMBZXHNEBMMTAHBNEXBBXILTTXAMEXWKLXHTXXERIMMKEWBMZAAHXIWXEVOXX
+Group 9: OEHENRDTDDTEHUEFEBAUEGFETBLTCACTTEATLSPSLWEAACOTNAHEINLRINYHESD
+Group 10: KGXLZXTAZYNGXMZMLEKGLAKGALEHKEHPATGHOYXMITTEUXMAWMMLLPBHOVIHLTA
+Group 11: IXYSIWTIISHXRLSLWMIMEXIHESEXSPRIIXHXIVRLSVGPPELMIIHYHMEXMIPXSRS
+Group 12: LSFXFKHKGJWASGGWGKLLJGWWLDDZOHFWKTGSVWVWOUWAAFWFHKGHWLFWFOWZMVF
+
+========== FREQUENCY ANALYSIS ==========
+
+Group 1
+--------------------------------
+Letter  Count   Percentage
+A       1       1.56%
+B       4       6.25%
+C       1       1.56%
+D       0       0.00%
+E       0       0.00%
+F       3       4.69%
+G       2       3.12%
+H       3       4.69%
+I       6       9.38%
+J       1       1.56%
+K       0       0.00%
+L       4       6.25%
+M       2       3.12%
+N       4       6.25%
+O       3       4.69%
+P       1       1.56%
+Q       1       1.56%
+R       0       0.00%
+S       1       1.56%
+T       0       0.00%
+U       6       9.38%
+V       0       0.00%
+W       4       6.25%
+X       3       4.69%
+Y       13      20.31%
+Z       1       1.56%
+
+Group 2
+--------------------------------
+Letter  Count   Percentage
+A       8       12.50%
+B       2       3.12%
+C       3       4.69%
+D       0       0.00%
+E       4       6.25%
+F       2       3.12%
+G       6       9.38%
+H       1       1.56%
+I       0       0.00%
+J       0       0.00%
+K       0       0.00%
+L       0       0.00%
+M       0       0.00%
+N       10      15.62%
+O       1       1.56%
+P       1       1.56%
+Q       1       1.56%
+R       8       12.50%
+S       2       3.12%
+T       3       4.69%
+U       4       6.25%
+V       3       4.69%
+W       0       0.00%
+X       0       0.00%
+Y       3       4.69%
+Z       2       3.12%
+
+Group 3
+--------------------------------
+Letter  Count   Percentage
+A       3       4.76%
+B       8       12.70%
+C       1       1.59%
+D       1       1.59%
+E       1       1.59%
+F       0       0.00%
+G       2       3.17%
+H       0       0.00%
+I       4       6.35%
+J       0       0.00%
+K       6       9.52%
+L       5       7.94%
+M       6       9.52%
+N       1       1.59%
+O       1       1.59%
+P       4       6.35%
+Q       2       3.17%
+R       0       0.00%
+S       0       0.00%
+T       1       1.59%
+U       1       1.59%
+V       5       7.94%
+W       5       7.94%
+X       0       0.00%
+Y       0       0.00%
+Z       6       9.52%
+
+Group 4
+--------------------------------
+Letter  Count   Percentage
+A       2       3.17%
+B       6       9.52%
+C       0       0.00%
+D       0       0.00%
+E       2       3.17%
+F       0       0.00%
+G       3       4.76%
+H       8       12.70%
+I       0       0.00%
+J       0       0.00%
+K       4       6.35%
+L       2       3.17%
+M       11      17.46%
+N       2       3.17%
+O       1       1.59%
+P       0       0.00%
+Q       0       0.00%
+R       2       3.17%
+S       0       0.00%
+T       1       1.59%
+U       0       0.00%
+V       0       0.00%
+W       8       12.70%
+X       9       14.29%
+Y       2       3.17%
+Z       0       0.00%
+
+Group 5
+--------------------------------
+Letter  Count   Percentage
+A       1       1.59%
+B       0       0.00%
+C       0       0.00%
+D       0       0.00%
+E       5       7.94%
+F       0       0.00%
+G       1       1.59%
+H       2       3.17%
+I       3       4.76%
+J       1       1.59%
+K       0       0.00%
+L       2       3.17%
+M       6       9.52%
+N       0       0.00%
+O       0       0.00%
+P       4       6.35%
+Q       4       6.35%
+R       4       6.35%
+S       9       14.29%
+T       2       3.17%
+U       0       0.00%
+V       5       7.94%
+W       4       6.35%
+X       7       11.11%
+Y       2       3.17%
+Z       1       1.59%
+
+Group 6
+--------------------------------
+Letter  Count   Percentage
+A       0       0.00%
+B       1       1.59%
+C       0       0.00%
+D       7       11.11%
+E       2       3.17%
+F       5       7.94%
+G       2       3.17%
+H       6       9.52%
+I       5       7.94%
+J       1       1.59%
+K       2       3.17%
+L       4       6.35%
+M       0       0.00%
+N       0       0.00%
+O       2       3.17%
+P       2       3.17%
+Q       4       6.35%
+R       9       14.29%
+S       0       0.00%
+T       0       0.00%
+U       5       7.94%
+V       1       1.59%
+W       4       6.35%
+X       1       1.59%
+Y       0       0.00%
+Z       0       0.00%
+
+Group 7
+--------------------------------
+Letter  Count   Percentage
+A       4       6.35%
+B       1       1.59%
+C       0       0.00%
+D       3       4.76%
+E       1       1.59%
+F       8       12.70%
+G       0       0.00%
+H       1       1.59%
+I       0       0.00%
+J       4       6.35%
+K       5       7.94%
+L       7       11.11%
+M       1       1.59%
+N       1       1.59%
+O       0       0.00%
+P       0       0.00%
+Q       1       1.59%
+R       0       0.00%
+S       5       7.94%
+T       3       4.76%
+U       3       4.76%
+V       2       3.17%
+W       9       14.29%
+X       2       3.17%
+Y       1       1.59%
+Z       1       1.59%
+
+Group 8
+--------------------------------
+Letter  Count   Percentage
+A       4       6.35%
+B       6       9.52%
+C       0       0.00%
+D       0       0.00%
+E       6       9.52%
+F       0       0.00%
+G       0       0.00%
+H       4       6.35%
+I       3       4.76%
+J       0       0.00%
+K       2       3.17%
+L       3       4.76%
+M       8       12.70%
+N       2       3.17%
+O       1       1.59%
+P       0       0.00%
+Q       0       0.00%
+R       1       1.59%
+S       0       0.00%
+T       4       6.35%
+U       0       0.00%
+V       1       1.59%
+W       3       4.76%
+X       12      19.05%
+Y       1       1.59%
+Z       2       3.17%
+
+Group 9
+--------------------------------
+Letter  Count   Percentage
+A       6       9.52%
+B       2       3.17%
+C       3       4.76%
+D       4       6.35%
+E       11      17.46%
+F       2       3.17%
+G       1       1.59%
+H       4       6.35%
+I       2       3.17%
+J       0       0.00%
+K       0       0.00%
+L       4       6.35%
+M       0       0.00%
+N       4       6.35%
+O       2       3.17%
+P       1       1.59%
+Q       0       0.00%
+R       2       3.17%
+S       3       4.76%
+T       8       12.70%
+U       2       3.17%
+V       0       0.00%
+W       1       1.59%
+X       0       0.00%
+Y       1       1.59%
+Z       0       0.00%
+
+Group 10
+--------------------------------
+Letter  Count   Percentage
+A       6       9.52%
+B       1       1.59%
+C       0       0.00%
+D       0       0.00%
+E       4       6.35%
+F       0       0.00%
+G       5       7.94%
+H       5       7.94%
+I       2       3.17%
+J       0       0.00%
+K       4       6.35%
+L       7       11.11%
+M       6       9.52%
+N       1       1.59%
+O       2       3.17%
+P       2       3.17%
+Q       0       0.00%
+R       0       0.00%
+S       0       0.00%
+T       5       7.94%
+U       1       1.59%
+V       1       1.59%
+W       1       1.59%
+X       5       7.94%
+Y       2       3.17%
+Z       3       4.76%
+
+Group 11
+--------------------------------
+Letter  Count   Percentage
+A       0       0.00%
+B       0       0.00%
+C       0       0.00%
+D       0       0.00%
+E       5       7.94%
+F       0       0.00%
+G       1       1.59%
+H       5       7.94%
+I       12      19.05%
+J       0       0.00%
+K       0       0.00%
+L       4       6.35%
+M       5       7.94%
+N       0       0.00%
+O       0       0.00%
+P       4       6.35%
+Q       0       0.00%
+R       4       6.35%
+S       8       12.70%
+T       1       1.59%
+U       0       0.00%
+V       2       3.17%
+W       2       3.17%
+X       8       12.70%
+Y       2       3.17%
+Z       0       0.00%
+
+Group 12
+--------------------------------
+Letter  Count   Percentage
+A       3       4.76%
+B       0       0.00%
+C       0       0.00%
+D       2       3.17%
+E       0       0.00%
+F       8       12.70%
+G       7       11.11%
+H       4       6.35%
+I       0       0.00%
+J       2       3.17%
+K       5       7.94%
+L       5       7.94%
+M       1       1.59%
+N       0       0.00%
+O       3       4.76%
+P       0       0.00%
+Q       0       0.00%
+R       0       0.00%
+S       3       4.76%
+T       1       1.59%
+U       1       1.59%
+V       3       4.76%
+W       12      19.05%
+X       1       1.59%
+Y       0       0.00%
+Z       2       3.17%
+
+========== KEY RECOVERY ==========
+Group 1 -> Shift = 20 -> Key letter = U
+Group 2 -> Shift = 13 -> Key letter = N
+Group 3 -> Shift = 8 -> Key letter = I
+Group 4 -> Shift = 19 -> Key letter = T
+Group 5 -> Shift = 4 -> Key letter = E
+Group 6 -> Shift = 3 -> Key letter = D
+Group 7 -> Shift = 18 -> Key letter = S
+Group 8 -> Shift = 19 -> Key letter = T
+Group 9 -> Shift = 0 -> Key letter = A
+Group 10 -> Shift = 19 -> Key letter = T
+Group 11 -> Shift = 4 -> Key letter = E
+Group 12 -> Shift = 18 -> Key letter = S
+
+=============================================
+Recovered Key = UNITEDSTATES
+=============================================
+
+========== RECOVERED PLAINTEXT ==========
+WETHEREFORETHEREPRESENTATIVESOFTHEUNITEDSTATESOFAMERICAINGENERALCONGRESSASSEMBLEDAPPEALINGTOTHESUPREMEJUDGEOFTHEWORLDFORTHERECTITUDEOFOURINTENTIONSDOINTHENAMEANDBYAUTHORITYOFTHEGOODPEOPLEOFTHESECOLONIESSOLEMNLYPUBLISHANDDECLARETHATTHESEUNITEDCOLONIESAREANDOFRIGHTOUGHTTOBEFREEANDINDEPENDENTSTATESTHATTHEYAREABSOLVEDFROMALLALLEGIANCETOTHEBRITISHCROWNANDTHATALLPOLITICALCONNECTIONBETWEENTHEMANDTHESTATEOFGREATBRITAINISANDOUGHTTOBETOTALLYDISSOLVEDANDTHATASFREEANDINDEPENDENTSTATESTHEYHAVEFULLPOWERTOLEVYWARCONCLUDEPEACECONTRACTALLIANCESESTABLISHCOMMERCEANDTODOALLOTHERACTSANDTHINGSWHICHINDEPENDENTSTATESMAYOFRIGHTDOANDFORTHESUPPORTOFTHISDECLARATIONWITHAFIRMRELIANCEONTHEPROTECTIONOFDIVINEPROVIDENCEWEMUTUALLYPLEDGETOEACHOTHEROURLIVESOURFORTUNESANDOURSACREDHONOR
+
+========== VERIFICATION ==========
+Original ciphertext:
+QRBAIUWYOKILBRZXTUWLEGXSNVDXWRXMHXYFCGMWWWSMELSXUZMKMFSBNZIFYEIEGRFZRXWKUFAXQEDXDTTHYNTBRJLHTAIKOCZXQHBNDZIGZGPXARJEDYSJNUMKIFLBTNHWISWNVLFMEGXAIAAWSLFMHXRSGRIGHEQTUMLGLVBRSILAEZSGXCMHTOWHFMLWMRKHPRFBELWGFRUGPBHNBEMKBNVWHHUEAKILBNBMLHKXUGMLYQKHPRFBELEJYNVWSIJBGAXGOTPMXRTXFKIWUALBRGWIEGHWHGAMEWWLTAELNUMREUWTBLSDPRLYVRETLEEDFROBEQUXTHXZYOZBXLKACKSOHNVWXKSMAEPHIYQMMFSECHRFYPBBSQTXTPIWHGPXQDFWTAIKNNBXSIYKETXTLVBTMQALAGHGOTPMXRTXTHXSFYGWMVKHLOIVUALMLDLTSYVWYNVWMQVXPXRVYABLXDLXSMLWSUIOIIMELISOYEBHPHNRWTVUIAKEYGWIETGWWBVMVDUMAEPAUAKXWHKMAUPAMUKHQPWKCXEFXGWWSDDEOMLWLNKMWDFWTAMFAFEAMFZBNWIHYALXRWKMAMIKGNGHJUAZHMHGUALYSULAELYHJBZMSILAILHWWYIKEWAHNPMLBNNBVPJXLBEFWRWGXKWIRHXWWGQHRRXWIOMFYCZHZLVXNVIOYZCMYDDEYIPWXTMMSHSVHHXZYEWNVOAOELSMLSWKXXFXSTRVIHZLEFJXDASFIE
+
+Re-encrypted ciphertext:
+QRBAIUWYOKILBRZXTUWLEGXSNVDXWRXMHXYFCGMWWWSMELSXUZMKMFSBNZIFYEIEGRFZRXWKUFAXQEDXDTTHYNTBRJLHTAIKOCZXQHBNDZIGZGPXARJEDYSJNUMKIFLBTNHWISWNVLFMEGXAIAAWSLFMHXRSGRIGHEQTUMLGLVBRSILAEZSGXCMHTOWHFMLWMRKHPRFBELWGFRUGPBHNBEMKBNVWHHUEAKILBNBMLHKXUGMLYQKHPRFBELEJYNVWSIJBGAXGOTPMXRTXFKIWUALBRGWIEGHWHGAMEWWLTAELNUMREUWTBLSDPRLYVRETLEEDFROBEQUXTHXZYOZBXLKACKSOHNVWXKSMAEPHIYQMMFSECHRFYPBBSQTXTPIWHGPXQDFWTAIKNNBXSIYKETXTLVBTMQALAGHGOTPMXRTXTHXSFYGWMVKHLOIVUALMLDLTSYVWYNVWMQVXPXRVYABLXDLXSMLWSUIOIIMELISOYEBHPHNRWTVUIAKEYGWIETGWWBVMVDUMAEPAUAKXWHKMAUPAMUKHQPWKCXEFXGWWSDDEOMLWLNKMWDFWTAMFAFEAMFZBNWIHYALXRWKMAMIKGNGHJUAZHMHGUALYSULAELYHJBZMSILAILHWWYIKEWAHNPMLBNNBVPJXLBEFWRWGXKWIRHXWWGQHRRXWIOMFYCZHZLVXNVIOYZCMYDDEYIPWXTMMSHSVHHXZYEWNVOAOELSMLSWKXXFXSTRVIHZLEFJXDASFIE
+
+VERIFICATION SUCCESSFUL!
+Both ciphertexts are identical.
+PS C:\Users\garvm\OneDrive\Desktop\CryptoLab\CryptoLabX_Group16\CryptoLabX\Assignment6> 
