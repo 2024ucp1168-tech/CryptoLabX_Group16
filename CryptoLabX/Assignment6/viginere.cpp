@@ -315,3 +315,312 @@ string vigenere_encrypt(
     return ciphertext;
 }
 
+/* =========================================================
+   13. verify()
+
+   Re-encrypts the recovered plaintext and compares it
+   with the original ciphertext.
+   ========================================================= */
+
+bool verify(
+    string originalCiphertext,
+    string plaintext,
+    string key)
+{
+    string generatedCiphertext =
+        vigenere_encrypt(plaintext, key);
+
+    cout << "\n========== VERIFICATION ==========\n";
+
+    cout << "Original ciphertext:\n";
+    cout << originalCiphertext << "\n\n";
+
+    cout << "Re-encrypted ciphertext:\n";
+    cout << generatedCiphertext << "\n\n";
+
+    if (generatedCiphertext == originalCiphertext)
+    {
+        cout << "VERIFICATION SUCCESSFUL!\n";
+        cout << "Both ciphertexts are identical.\n";
+
+        return true;
+    }
+
+    cout << "VERIFICATION FAILED!\n";
+    cout << "Ciphertexts are different.\n";
+
+    return false;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+int main()
+{
+    string input;
+
+    cout << "=============================================\n";
+    cout << " VIGENERE CIPHER CRYPTANALYSIS\n";
+    cout << " KASISKI + FREQUENCY ANALYSIS\n";
+    cout << "=============================================\n";
+
+
+    /* -----------------------------------------------------
+       STEP 1
+       Read ciphertext
+       ----------------------------------------------------- */
+
+    cout << "\nEnter ciphertext:\n";
+
+    getline(cin, input);
+
+
+    /* -----------------------------------------------------
+       STEP 2
+       Preprocess ciphertext
+       ----------------------------------------------------- */
+
+    string ciphertext =
+        clean_ciphertext(input);
+
+    cout << "\n========== PREPROCESSING ==========\n";
+
+    cout << "Clean ciphertext:\n";
+    cout << ciphertext << "\n";
+
+
+    /* -----------------------------------------------------
+       STEP 3
+       Find repeated patterns
+       ----------------------------------------------------- */
+
+    vector<string> patterns =
+        find_repeated_patterns(ciphertext);
+
+    cout << "\n========== REPEATED PATTERNS ==========\n";
+
+    if (patterns.empty())
+    {
+        cout << "No repeated patterns found.\n";
+
+        return 0;
+    }
+
+    for (string pattern : patterns)
+    {
+        cout << pattern << " ";
+    }
+
+    cout << "\n";
+
+
+    /* -----------------------------------------------------
+       STEP 4
+       Calculate distances
+       ----------------------------------------------------- */
+
+    vector<int> distances =
+        calculate_distances(
+            ciphertext,
+            patterns);
+
+    cout << "\n========== DISTANCES ==========\n";
+
+    for (int d : distances)
+    {
+        cout << d << " ";
+    }
+
+    cout << "\n";
+
+
+    /* -----------------------------------------------------
+       STEP 5
+       Find factors
+       ----------------------------------------------------- */
+
+    vector<int> factors =
+        find_factors(distances);
+
+    cout << "\n========== FACTORS ==========\n";
+
+    for (int f : factors)
+    {
+        cout << f << " ";
+    }
+
+    cout << "\n";
+
+
+    /* -----------------------------------------------------
+       STEP 6
+       Kasiski analysis
+       ----------------------------------------------------- */
+
+    vector<int> candidates =
+        kasiski_analysis(distances);
+
+    if (candidates.empty())
+    {
+        cout << "\nCould not determine key length.\n";
+
+        return 0;
+    }
+
+
+    /* -----------------------------------------------------
+       STEP 7
+       Index of Coincidence
+
+       We calculate average IC for each candidate.
+
+       A value closer to English IC (~0.066) suggests
+       a more likely key length.
+       ----------------------------------------------------- */
+
+    cout << "\n========== INDEX OF COINCIDENCE ==========\n";
+
+    int keyLength = candidates[0];
+
+    double bestICDifference = 1e18;
+
+    /*
+       We only examine the first few Kasiski candidates.
+    */
+
+    int limit = min(5, (int)candidates.size());
+
+    for (int i = 0; i < limit; i++)
+    {
+        int length = candidates[i];
+
+        vector<string> groups =
+            split_into_groups(
+                ciphertext,
+                length);
+
+        double totalIC = 0;
+
+        for (string group : groups)
+        {
+            totalIC += calculate_ic(group);
+        }
+
+        double averageIC =
+            totalIC / groups.size();
+
+        cout << "Key length "
+             << length
+             << " -> Average IC = "
+             << fixed
+             << setprecision(4)
+             << averageIC
+             << "\n";
+
+        /*
+           English plaintext has IC around 0.066.
+        */
+
+        double difference =
+            abs(averageIC - 0.066);
+
+        if (difference < bestICDifference)
+        {
+            bestICDifference = difference;
+
+            keyLength = length;
+        }
+    }
+
+
+    /* -----------------------------------------------------
+       STEP 8
+       Display estimated key length
+       ----------------------------------------------------- */
+
+    cout << "\n=============================================\n";
+    cout << "Estimated Key Length = "
+         << keyLength
+         << "\n";
+    cout << "=============================================\n";
+
+
+    /* -----------------------------------------------------
+       STEP 9
+       Split ciphertext into groups
+       ----------------------------------------------------- */
+
+    vector<string> groups =
+        split_into_groups(
+            ciphertext,
+            keyLength);
+
+
+    cout << "\n========== GROUPS ==========\n";
+
+    for (int i = 0;
+         i < (int)groups.size();
+         i++)
+    {
+        cout << "Group "
+             << i + 1
+             << ": "
+             << groups[i]
+             << "\n";
+    }
+
+
+    /* -----------------------------------------------------
+       STEP 10
+       Frequency analysis
+       ----------------------------------------------------- */
+
+    frequency_analysis(groups);
+
+
+    /* -----------------------------------------------------
+       STEP 11
+       Recover key
+       ----------------------------------------------------- */
+
+    string key =
+        find_key(groups);
+
+    cout << "\n=============================================\n";
+    cout << "Recovered Key = "
+         << key
+         << "\n";
+    cout << "=============================================\n";
+
+
+    /* -----------------------------------------------------
+       STEP 12
+       Decrypt
+       ----------------------------------------------------- */
+
+    string plaintext =
+        vigenere_decrypt(
+            ciphertext,
+            key);
+
+    cout << "\n========== RECOVERED PLAINTEXT ==========\n";
+
+    cout << plaintext << "\n";
+
+
+    /* -----------------------------------------------------
+       STEP 13
+       Verify
+       ----------------------------------------------------- */
+
+    verify(
+        ciphertext,
+        plaintext,
+        key);
+
+
+    return 0;
+}
+
